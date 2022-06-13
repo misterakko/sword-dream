@@ -1,0 +1,1 @@
+PROGRAM Dream;Uses	Types,	QuickDraw,		ObjIntf,	{ Might be needed to have the Linker include %_MethTables }		Game;BEGIN	Allend.
