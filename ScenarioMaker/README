@@ -1,1 +1,209 @@
 ScenarioMake is the app used to create new scenarios for Sword Dream. It is complemented by Mister Monster Maker which creates resources (including monsters) based on templates, which are then added to scenarios.
+What follows is the original release notes text file.
+
+--
+
+ScenarioMaker 3D
+developer release 7
+
+Welcome to the sixth release of the 3D tools for Sword Dream.
+We did our best to create software that is both immediate to use, and allows scenario designers to create elegant three-D structures. To do so in a timely manner, we are implementing ScenarioMaker in a modular fashion — not all features of the powerful 3D Engine in Sword Dream 3D are currently supported here. Some features, like animated textures and 3D non player characters, will be supported with subsequent developer releases of the 3D tools. Each subsequent developer release offers more features.
+
+A full-length manual in Microsoft Word 5.1 format can be downloaded from ftp://ftp.comenius.com/pub/software/mac/dream/ScenMakerManual.sit The complete manual for ScenarioMaker has a length of 100.000 characters and is saved in Microsoft Word 5.1 format).
+This read me file details the features related to creation of 3D places. Features new to release DR7 are written in blue: if you used the previous version, just read the blue text.
+
+As I write this, the Internet site at www.comenius.com (and the file download area at ftp.comenius.com) are both down, and I don't know when they'll be back online. If you have problems finding the files you need, contact me via e-mail. My address is in the last paragraph of this document.
+
+3D places
+
+To the ScenarioMaker user, a 3D place is just another kind of Dream place, like a temple or a shop. To create a 3D environment, open your scenario (or create a new one), then select "New" from the Place menu. In the dialog box that appears, select the "3D" radio button.
+All other controls in the "Place information" dialog box are documented in the main ScenarioMaker manual.
+
+Whenever you create a "3D place", Scenario Maker shows two palettes along the main window. The horizontal palette shows the 100 functional building blocks; the vertical palette, along the left side of the screen, shows the available materials. A tool bar appears above the place map, in the main window.
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+To create a building, select a material (like bricks); then click on the building blocks palette to select the shape you need. Finally, click inside the main window. That's all!
+For a rectangular building, click in the place where you with to position the top-left-most corner, and drag to the opposite corner. Then add doors and windows. In DR5, this same feature will be used to automatically create rooves above buildings.
+
+Most  functional building blocks have a number in the topmost right corner. This is the height, in floors, of the block. For example, if you click on the bricks icons, and then on the straight line marked 1, you can create a bricks wall. If you chose the straight line marked 2 (directly below the first one, inside the functional building blocks palette), you'd create a taller wall — twice taller.
+
+ 
+
+
+The taller the buildings in your place, the slower the 3D Engine will be in rendering the place. ScenarioMaker, starting with Developer Release 2, optimizes the 3D place for maximum speed — still, you might wish to keep very tall buildings to a minimum. If you created a 3D place with a previous version of ScenarioMaker 3D, open it in this version, then immediately save it: this is all you need to do, in order to have ScenarioMaker optimize your place.
+
+Use the blank icon (leftmost) to plot a square of land with no building. The second and third blank icon (directly below) can be used interchangeably - they internally default to the same instruction for the 3D engine.
+Note that you shouldn't leave any space unplotted (white). This is a traditional requirement for ScenarioMaker.
+
+Also note that the traditional Scenario Maker features still work in 3D mode. You can use the F key to fill a place with the selected building block (or Option-f to fill overwriting). You can take a look at the structure of the 3D place (Scenario Maker will show you a map using the materials) pressing Command-T. You can add specifics to any location by double-clicking it.
+
+The usual Dream rules for entering places — that is, if you enter from the north, you find yourself at the center of the topmost side of the inner place, and so on — are not valid in 3D places. You can select any one spot in the 3D place where the player character will appear on entrance. To do so, press the “starting flag” button.
+
+ 
+
+
+In the dialog box that appears you can choose both the starting point and the starting view angle (that is, the direction the player will face first). Please note that the starting view angle is only supported in version 2.1 and greater of the Sword Dream 3D engine.
+
+3D boxes (items, furniture, etc.)
+
+You can place visible items in your 3D place. For example, a carpet, a chair or a pillar.
+We will call any visible 3D item a ”box” — mostly for historical reasons, since there's no restriction in the Dream 3D engine to make them parallelepipedal.
+
+You can create 3D boxes inside MisterMonsterMaker 3D, version 2.2 or greater. Once you are done with your definition, and have compiled the box, you can place it inside a 3d place.
+To do so, please open the 3D place, then select “Structure” from the Place menu. Now click the “3D box” button in the toolbar.
+ 
+
+
+You'll see a list of available boxes. Select the one you are interested in. The box will appear in the top-left corner of your 3D place. Just drag it to destination, using your mouse.
+
+Please note that 3D boxes thus defined and places are only supported inside version 2.1 or greater of the Sword Dream 3D engine. If you absolutely need to create a scenario that stays compatible with v2.0 contact us — but remember that you'd have to place the 3D boxes manually, typing the coordinates in ResEdit...
+
+Backgrounds and other features of the 3D place
+
+Before you save your place, you can choose some texture to be used for the floors and rooves of the place. To do so, click the relevant button in the toolbar and select a texture from the list that appears.
+
+ 
+
+
+You can add your own textures to your scenario, using ResEdit: just paste them inside a resource. Use a resource of type "cicn" and a numeric ID between 1000 and 9999.
+When reopening the 3D places you create, older versions of ScenarioMaker 3D forgot your selection for floors and rooves. This version will keep those information from previous saves.
+
+If your 3D place is an outdoors space (or if it contains windows), you must add a background. A range of mountains, a vast barren expanse, or some trees, may add a lot to the gaming experience.
+The 3D Engine can use any picture, sized 100 by 1440 pixels, for a background. Paste your picture inside your scenario as a PICT resouce, then click the first icon in the toolbar: ScenarioMaker will allow you to select your background picture, and will instruct the 3D Engine to use it.
+
+The 3D engine in Dream strictly requires a background of sorts for 3D outdoor places. Thus, we are adding a white background in the Dream DB file starting from version 2.1. This background uses ID 505. ScenarioMaker 3D, starting from version DR5, will assign PICT ID 505 as a default background picture for outdoor places. If you don't create a better background (you should) and wish to stay compatible with version 2.0 you should copy the PICT ID 505 from the Dream DB v2.1 into your scenario.
+
+For the technically minded
+Scenario Maker will save three resources for each 3D place you create. All three resources have the same numeric ID and name. The "Plac" contains the 2D representation that you see in Scenario Maker, along with peculiar Dream information (related texts, encounters etc).
+The "SqMp" contains the information for the 3D engine. The "3DEn" is a template which contains information about the background, roof and floor textures, lightings and other display features of the 3D environment. Future versions of ScenarioMaker will allow you to further customize this environment.
+You can see inside all three resources using ResEdit.
+
+Weather
+
+For outdoors places, the 3D Engine supports a simulation of atmospheric weather. You'll find a popup menu in the toolbar. The default selection displays a sun icon (for clear weather). Select the snow icon or the rain icon to change the weather conditions in your 3D place.
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+You can create your own customized weather. To do so, you'll have to draw some frames for the weather. The frames will be plotted, cartoon-like, in front of the 3D scene — and this will do.
+Use Mister Monster Maker (the companion utility to ScenarioMaker) to create your own weather. Then select the last icon in the popup weather menu. A dialog box will appear, and you will be allowed to select your custom weather definition.
+When reopening a 3D place, the correct icon for the selected weather is shown in the popup menu.
+
+3D Events
+
+ScenarioMaker 3D allows you to position a "3D Event" in a 3D place. 
+The more common example for a 3D event is the animated opening of a door when the player gets near. More complex events can be associated to the presence of a player character in a location. For
+example, you could see some leaves falling when you stand below the branches of a tree.
+A 3D event is composed with a sequel of pictures, wich the 3D Engine will draw in front of the rendered scenery. You should draw the picturs first (320 x 200 pixels and 256 colors, for maximum speed), then paste them inside your scenario (as PICT resources). Give the PICTs consecutive numeric IDs in the 1000-9999 range.
+Next, use Mister Monster Maker 3D to create a "3D Event" resource. This resource will be used by the 3D Engine as a description for the event, and details the speed of the animation, among other things.
+Last, use ScenarioMaker 3D to position your event. Double click on the place location where the event is supposed to take place. Type the number of the "3D Event" resource that you crated, and click on the "Invokes 3D event" radiobutton. You are done.
+
+Previews
+
+The resource picker used inside ScenarioMaker now sports a preview feature. For now, the preview is supported for pictures, texts, color icons and patterns.
+The resource picker (the dialog box that pops up when you have to choose a resource — for example when you select Open Text from the menu bar) now supports a default. This is used to show the current selection for an option. For example, if you click the "background PICT" button in the toolbar (the 1440 x 100 pixels picture which will be used as a backdrop), the previous selection is shown and pre-selected.
+
+The resource picker can be invoked by pressing the “?" button which now appears in all dialog boxes.
+
+Dialogs
+
+Dream 3D introduces the possibility of multiple-choice "dialogs" between the player and the monsters. Scenario Maker now allows you to choose a location where such dialogs happen. Double click on a location and use the dialog box that appears to place a dialog. 
+
+ 
+
+
+The dialog itself must be created inside MisterMonsterMaker, version 2.1 or greater. You can download this companion utility from the FTP site, or from http://www.comenius.com/dream/software.html.
+
+Please note that dialogues, as compiled in MMM, are only supported by version 2.1 or greater of the Sword Dream application.
+
+Light Sources
+
+Starting from version DR6, ScenarioMaker allows you to add light sources to your 3D places. A light source is a 3D object which looks the same from any viewpoint (like a candle), and is allowed to diffuse light onto the scene. In order to create a light source object, use Mister Monster Maker, version 2.3 or greater. When you are done, open ScenarioMaker and click the “add light source” button:
+
+ 
+
+
+Your object will be added at the top left corner of your 3D place. You can move it using the mouse.
+
+Text
+
+ScenarioMaker 3D now includes a full-featured text editor. You can use the editor to type the texts that will be displayed inside a separate window in Dream 3D. A text piece can be attached to a place (use the "Place info" dialog box in the Place menu); a location (double click on a location inside the main place window in Scenario Maker, then type the text ID inside the "text on enter" box); or an item (that is, a book — use Mister Monster Maker to generate the item, and while in there type the ID of the text piece that you created in Scenario Maker). 
+The text editor is accessed via the Text menu. Please note that there is a bug in the current version: the program might crash if you open more than one text piece simultanoeusly.
+
+Pictures inside arenas
+
+In Sword Dream 1.0, a scenario designer was restricted to tiling together a bunch of icons to create a place. In version 1.5 we introduced the possibility of pasting a picture, to be used to show a place — you see such a place in the opening of "Return to Dawn Valley" and "Secret of Graywood".
+
+With Sword Dream 3D v2.1, we introduce a similar opportunity for arenas (the places where combat occurs). ScenarioMaker 3D, starting from version DR5, allows you to pick a PICT resource which will be used inside the arena.
+If you DON'T use this new functionality, ScenarioMaker will create an old-format Aren resource (and stay compatible with old versions of the application). If you do, your scenario will be playable only inside version 2.1 or greater of the Dream application. Remember to state this requirement in your ”Scenario information” (“Info”) resource.
+
+Custom materials
+
+The materials that ScenarioMaker displays on startup are taken from the Dream DB. You can add your own building materials. Suppose you wish to place your scenario in a tropical environment, and you plan to create some straw huts for a village there. You can add the straw building material to the ScenarioMaker vertical palette — and then have it displayed inside Sword Dream 3D.
+To do so you need some ingenuity and ResEdit.
+
+Open the Dream DB file in ResEdit, and also open your scenario. Copy a complete series of the square elements building blocks ("SqEl"), up to one hundred resources, numbered from 900 up to 999. Paste them in your scenario, and renumber them. The first material you add must be numbered 1000, and its related SqEls should occupy the Ids from 1000 to 1099. A second building material can be added and should use the IDs from 1100 to 1199, and so on.
+
+You must then add a texture: the 3D Engine will use it to render the new material. The easiest way is to open the SqEls while you are renumbering them, and note the internal reference to either PICTs or cicns (large color icons). Also copy those from the Dream DB, and then create replacements showing your own texture — the straw, in our example.
+You are restricted to using the numbers from 1000 up to 9999 for your pictorial resources. All other numbersare reserved for Dream 3D.
+There's just one more need — you have to create a 32x32 icon or the "cicn" variety, for ScenarioMaker to use in its building materials palette. Create such an icon (you'll typically want to grab a piece of your main texture), paste it inside your scenario, and assign to it the same numeric ID as the first SqEl of the series. So, the first custom material you'll add will be displayed in ScenarioMaker using the cicn ID 1000; the second using cicn ID 1100.
+
+If you did all this correctly, ScenarioMaker will automatically recognize the new building material, resize its materials palette, and allow you to use it. 
+
+Custom building blocks
+
+You probably noticed that the building blocks palette is vastly incomplete. We left some free spaces so you can add your own custom-designed walls, niches and architectural elements.
+The Dream team reserves the usage of the first 90 building blocks in every series — you can create your own additions for both the standard series (that is, for the materials that are built into Scenario Maker and the Dream DB) and your own.
+
+For example, you might wish to add a straight bricks wall, with a sign painted on it. You would add the new wall to the bricks series.
+
+To add a building block to the palette you must create:
+1. Your own texture for the new building block
+2. Your own icon, to be shown in ScenarioMaker
+3. A description for the building block (that is, how it is shaped).
+
+Step 1.
+The texture can be any cicn resource. Use any ID you have free in the range 1000 up to 9999. You'll refer to this number from inside the SqEl resource, in step 3.
+In our example (the painted sign), you would copy the bricks texture, create a new cicn, give it the number 1050, paste the bricks texture, paint the sign above the texture, save your work inside your scenario.
+
+Step 2.
+The icon should be numbered 99x (with x any integer — so you can use the numbers from 990 up to 999). You must create it in both the"icl4" (16 colors) and "ICN#" (black and white) varieties.
+Scenario Maker will display your new icon in the building blocks (horizontal) palette FOR EACH AND EVERY MATERIAL. You must be certain to use the new building block only in conjunction with the correct material.
+In our example (the painted sign) you might copy icon ID 901 (both icl4 and ICN# resources) from Scenario Maker into your scenario. Renumber those icons to 990. Modify them so that you can recognize that they contain the sign.
+
+Step 3.
+Now to the element itself. A building block is saved inside a SqEl resource. You should copy a standard SqEl (the one which resembles what you are trying to obtain the most), and modify it. Edit the resource, and substitute the original texture with your own. Then renumber it and give it the correct number. The last two digits are the same as with the icon you created in step 2. The first digit, or digits, are characteristic of the series.
+Back to our example. Use ResEdit. Copy a straight wall building block from the Dream DB to your scenario. SqEl 901 would be acceptable. Renumber it to 890 (800 is the bricks series, and your icon was numbered 990 in step 2). Open it and set the texture to the texture you created in step 1 (write 1050).
+
+ScenarioMaker and Mac OS 8
+
+From Developer release 7, ScenarioMaker is Mac OS 8-aware. This means that my application can still be used under System 7, but it gains new features if run under the new, exciting Operating System from Apple.
+• Dialog boxes are moveable
+• Error messages contain an explanation of the steps needed to recover, and are moveable
+• All windows and dialog boxes retain the Platinum Appearance (including focus rings), even if the Systemwide platinum appearance is turned off for compatibility reasons in the Appearance control panel.
+• Windoids are for real - they float in front of other windows, and disappear when you bring the application to the background.
+• ScenarioMaker is ready for Switchable Themes - future versions of the Mac OS will allow us to change the user interface. ScenarioMaker will automatically take advantage in full of the new theme.
+• Enhanced menu handling
+
+
+Send your comments to akko@ilmioweb.it. We will consider all of them before we decide what other features of the 3D Engine to incorporate in ScenarioMaker. The full list of available features in the 3D Engine is at http://www.comenius.com/dream/tn28.html
