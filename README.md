@@ -1,4 +1,4 @@
-Swird Dream 3D was a shareware role playing game for classic Mac computers.
+Sword Dream 3D was a shareware role playing game for classic Mac computers.
 The following lines are the original readme file from 1997, minus the shareware notice as the game of now open source, and the obsolete contact information.
 
 --
